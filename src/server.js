@@ -1,5 +1,5 @@
 const app = require('./app');
-const { default: sequelize } = require('./utils/connections');
+const  sequelize = require('./utils/connections');
 
 const PORT = process.env.PORT || 8080;
 
