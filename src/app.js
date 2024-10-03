@@ -17,15 +17,10 @@ app.use(helmet({
 }));
 app.use(cors());
 
-app.use(router);
+app.use('/api/v1', router);
 app.get('/', (req, res) => {
     return res.send("Welcome to Grabieliten express app!");
 });
-app.get('/api/v1', (req, res) => {
-    return res.send("Here you will find the nice Car Service App, but not yet...");
-})
-
-//app.use('/api/v1', router);
 
 //middlewares después de la rutas
 app.use(errorHandler);
