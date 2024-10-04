@@ -4,6 +4,7 @@ const sequelize = require('../utils/connection');
 const User = sequelize.define('user', {
     username: {
       type: DataTypes.STRING,
+      unique: true,
         allowNull: false
     },
     firstname: {
@@ -18,6 +19,10 @@ const User = sequelize.define('user', {
         type: DataTypes.STRING,
         allowNull: true
     },
+    hidden: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
+    }
 
    
 });
