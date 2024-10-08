@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/connection');
+const Repair = require('./Repair');
 
 const User = sequelize.define('user', {
     username: {
@@ -32,5 +33,8 @@ User.prototype.toJSON = function () {
     delete values.password;
     return values;
 }
+
+User.belongsTo(Repair);
+Repair.hasMany(User);
 
 module.exports = User;
