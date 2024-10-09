@@ -1,5 +1,5 @@
+const sequelize = require('../utils/connections'); //const sequelize = new Sequelize(process.env.DATABASE_URL);
 const { DataTypes } = require('sequelize');
-const sequelize = require('../utils/connection');
 
 const Repair = sequelize.define('repair', {
     moanobra: {
