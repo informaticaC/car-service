@@ -1,5 +1,6 @@
 const catchError = require('../utils/catchError');
 const User = require('../models/User');
+const Repair = require('../models/Repair');
 
 const getAll = catchError(async(req, res) => {
     const results = await User.findAll();
@@ -34,10 +35,22 @@ const update = catchError(async(req, res) => {
     return res.json(result[1][0]);
 });
 
+
+const setRepair = catchError(async(req,res) =>{
+    const { id } = req.params;
+    console.log('user ID:==>>', id);
+    const userToSet = await User.findByPk( id );
+    console.log('user to set====>>>' , userToSet);
+    await userToSet.setRepairs(req.body);
+    const repair = await userToSet.getRepairs();
+    return res.json(repair);
+})
+
 module.exports = {
     getAll,
     create,
     getOne,
     remove,
-    update
+    update,
+    setRepair
 }

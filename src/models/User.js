@@ -34,7 +34,7 @@ User.prototype.toJSON = function () {
     return values;
 }
 
-User.belongsTo(Repair);
+User.belongsTo(Repair); // this create repairId row and the method User.setRepairs
 Repair.hasMany(User);
 
 module.exports = User;

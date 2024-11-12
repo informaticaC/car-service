@@ -1,8 +1,10 @@
 const catchError = require('../utils/catchError');
 const Repair = require('../models/Repair');
+const User = require('../models/User');
+const Detail = require('../models/Detail');
 
 const getAll = catchError(async(req, res) => {
-    const results = await Repair.findAll();
+    const results = await Repair.findAll({include: [User, Detail]});
     return res.json(results);
 });
 
@@ -33,6 +35,7 @@ const update = catchError(async(req, res) => {
     if(result[0] === 0) return res.sendStatus(404);
     return res.json(result[1][0]);
 });
+
 
 module.exports = {
     getAll,
