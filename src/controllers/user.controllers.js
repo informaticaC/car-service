@@ -36,18 +36,18 @@ const update = catchError(async(req, res) => {
 });
 
 
-const setRepair = catchError(async(req,res) =>{
-    const { id } = req.params  ;
-    console.log('user ID:==>>', id);
-    console.log('typeof id', typeof(id) ); 
-    console.log('req.body, repair to set:==>', req.body);
-    const userToSet = await User.findByPk( id );
-    console.log('user to set====>>>' , userToSet.dataValues);
-    await userToSet.setRepair(req.body);       //setRepair(req.body);
-    const repair = await userToSet.getRepair();
-    console.log('repair:=====>', repair);
-    return res.json(repair);
-})
+// const setRepair = catchError(async(req,res) =>{
+//     const { id } = req.params  ;
+//     console.log('user ID:==>>', id);
+//     console.log('typeof id', typeof(id) ); 
+//     console.log('req.body, repair to set:==>', req.body);
+//     const userToSet = await User.findByPk( id );
+//     console.log('user to set====>>>' , userToSet.dataValues);
+//     await userToSet.setRepair(req.body);       //setRepair(req.body);
+//     const repair = await userToSet.getRepair();
+//     console.log('repair:=====>', repair);
+//     return res.json(repair);
+// })
 
 module.exports = {
     getAll,
@@ -55,5 +55,5 @@ module.exports = {
     getOne,
     remove,
     update,
-    setRepair
+    //setRepair
 }

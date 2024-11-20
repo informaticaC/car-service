@@ -36,11 +36,25 @@ const update = catchError(async(req, res) => {
     return res.json(result[1][0]);
 });
 
+const setUser = catchError(async(req,res) =>{
+    const { id } = req.params  ;
+            console.log('repair ID:==>>', id);
+            console.log('typeof id', typeof(id) ); 
+            console.log('req.body, user to set:==>', req.body);
+    const repair_instance = await Repair.findByPk( id );
+            console.log('repair to set====>>>' , repair_instance.dataValues);
+    await repair_instance.setUser(req.body) //.setUser(req.body);       //setRepair(req.body);
+    const user = await repair_instance.getUser();
+            console.log('user:=====>', user);
+    return res.json(user);
+})
+
 
 module.exports = {
     getAll,
     create,
     getOne,
     remove,
-    update
+    update,
+    setUser
 }
