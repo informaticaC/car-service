@@ -12,7 +12,5 @@ const Detail = sequelize.define( 'detail', {
     }
 });
 
-Detail.hasMany(Repair);
-Repair.belongsTo(Detail);
 
 module.exports = Detail;
