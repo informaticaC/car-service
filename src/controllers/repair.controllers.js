@@ -41,11 +41,11 @@ const setUser = catchError(async(req,res) =>{
             console.log('repair ID:==>>', id);
             console.log('typeof id', typeof(id) ); 
             console.log('req.body, user to set:==>', req.body);
-    const repair_instance = await Repair.findByPk( id );
+    const repair_instance = await Repair.findByPk( Number(id) );
             console.log('repair to set====>>>' , repair_instance.dataValues);
-    await repair_instance.setUser(req.body) //.setUser(req.body);       //setRepair(req.body);
-    const user = await repair_instance.getUser();
-            console.log('user:=====>', user);
+    await repair_instance.setUser(req.body); //.setUser(req.body);       //setRepair(req.body);
+    const user = await Repair.findByPk( id );
+            console.log('user:=====>', user.dataValues);
     return res.json(user);
 })
 
