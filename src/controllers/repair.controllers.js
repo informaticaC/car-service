@@ -44,9 +44,6 @@ const setUser = catchError(async(req,res) =>{
     const repair_instance = await Repair.findByPk( Number(id) );
             console.log('repair to set====>>>' , repair_instance);
     await repair_instance.setUsers(req.body)  //.setUser(req.body); //.setUser(req.body);       //setRepair(req.body);
-    const user = await repair_instance.getUsers();      //Repair.findByPk( id );
-            console.log('user:=====>', user.dataValues);
-    const repair_instance = await Repair.findByPk( id );
             console.log('repair to set====>>>' , repair_instance.dataValues);
     await repair_instance.setUser(req.body) //.setUser(req.body);       //setRepair(req.body);
     console.log('repair already seted=======>>>' , repair_instance.dataValues);
