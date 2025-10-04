@@ -15,7 +15,7 @@ const create = catchError(async(req, res) => {
 
 const getOne = catchError(async(req, res) => {
     const { id } = req.params;
-    const result = await Repair.findByPk(id);
+    const result = await Repair.findByPk(id, {include: [User, Detail]});
     if(!result) return res.sendStatus(404);
     return res.json(result);
 });
@@ -37,7 +37,7 @@ const update = catchError(async(req, res) => {
 });
 
 const setUser = catchError(async(req,res) =>{
-    const { id } = req.params  ;
+    const { id } = req.params  ; //repair id to set a user(req.body) 
             console.log('repair ID:==>>', id);
             console.log('typeof id', typeof(id) ); 
             console.log('req.body, user to set:==>', req.body);
@@ -46,6 +46,14 @@ const setUser = catchError(async(req,res) =>{
     await repair_instance.setUsers(req.body)  //.setUser(req.body); //.setUser(req.body);       //setRepair(req.body);
     const user = await repair_instance.getUsers();      //Repair.findByPk( id );
             console.log('user:=====>', user.dataValues);
+    const repair_instance = await Repair.findByPk( id );
+            console.log('repair to set====>>>' , repair_instance.dataValues);
+    await repair_instance.setUser(req.body) //.setUser(req.body);       //setRepair(req.body);
+    console.log('repair already seted=======>>>' , repair_instance.dataValues);
+
+    const user = await repair_instance.getUser(repair_instance.id);
+    
+            console.log('user:=====>', user);
     return res.json(user);
 })
 

@@ -21,5 +21,4 @@ const Detail = sequelize.define( 'detail', {
 });
 
 
-
 module.exports = Detail;

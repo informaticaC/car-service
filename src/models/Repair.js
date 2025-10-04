@@ -3,13 +3,13 @@ const { DataTypes } = require('sequelize');
 const User = require('./User');
 
 const Repair = sequelize.define('repair', {
-    moanobra: {
+    labor: {
         type: DataTypes.REAL,
         allowNull: true,
         defaultValue:0
 
     },
-    repuestos: {
+    parts: {
         type: DataTypes.REAL,
         allowNull: true,
         defaultValue:0
