@@ -19,7 +19,7 @@ app.use(cors());
 
 app.use('/api/v1', router);
 app.get('/', (req, res) => {
-    return res.send("Welcome to Grabieliten express app!");
+    return res.send("Welcome to Grabieliten Car Service express app!");
 });
 
 //middlewares después de la rutas

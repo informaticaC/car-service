@@ -43,7 +43,7 @@ const update = catchError(async(req, res) => {
 //     console.log('req.body, repair to set:==>', req.body);
 //     const userToSet = await User.findByPk( id );
 //     console.log('user to set====>>>' , userToSet.dataValues);
-//     await userToSet.setRepair(req.body);       //setRepair(req.body);
+//     await userToSet.setRepairs(req.body);       //setRepair(req.body);
 //     const repair = await userToSet.getRepair();
 //     console.log('repair:=====>', repair);
 //     return res.json(repair);

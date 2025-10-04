@@ -1,12 +1,11 @@
-const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/connections');
-const Repair = require('./Repair');
+const { DataTypes } = require('sequelize');
 
 const User = sequelize.define('user', {
     username: {
       type: DataTypes.STRING,
       unique: true,
-        allowNull: false
+      allowNull: false
     },
     firstname: {
       type: DataTypes.STRING,
@@ -34,7 +33,6 @@ User.prototype.toJSON = function () {
     return values;
 }
 
-User.hasMany(Repair); // this create repairId row and the method User.setRepair
-Repair.belongsTo(User);
+
 
 module.exports = User;

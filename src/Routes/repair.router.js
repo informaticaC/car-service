@@ -1,4 +1,4 @@
-const { getAll, create, getOne, remove, update, setUser } = require('../controllers/repair.controllers');
+const { getAll, create, getOne, remove, update, setUser, setDetail } = require('../controllers/repair.controllers');
 const express = require('express');
 
 const routerRepair = express.Router();
@@ -14,5 +14,8 @@ routerRepair.route('/:id')
 
 routerRepair.route('/:id/setUser')
     .post(setUser);
+
+routerRepair.route('/:id/setDetail')
+    .post(setDetail);
 
 module.exports = routerRepair;
