@@ -3,6 +3,7 @@ const Repair = require('./Repair');
 const Detail = require('./Detail');
 const Vehicle = require('./Vehicle');
 const Owner = require('./Owner');
+const Spare = require('./Spare');
 
 // Define associations here
 // One-to-Many: Owner has many Vehicles
@@ -17,3 +18,6 @@ Repair.belongsToMany(Detail, { through: 'DetailsRepairs'});
 
 Vehicle.belongsToMany(Repair, { through: 'VehiclesRepairs'});
 Repair.belongsToMany(Vehicle, { through: 'VehiclesRepairs'});
+
+Spare.belongsToMany(Repair, { through: 'SparesRepairs'});
+Repair.belongsToMany(Spare, { through: 'SparesRepairs'});

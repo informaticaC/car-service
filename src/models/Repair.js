@@ -1,5 +1,6 @@
-const sequelize = require('../utils/connections'); //const sequelize = new Sequelize(process.env.DATABASE_URL);
+const sequelize = require('../utils/connections'); 
 const { DataTypes } = require('sequelize');
+
 const User = require('./User');
 
 const Repair = sequelize.define('repair', {
